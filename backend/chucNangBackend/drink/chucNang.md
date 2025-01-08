@@ -21,7 +21,7 @@ Xóa mềm nước drink-softDeleteDrinkById: Ad
 
 # Logic 
 ## Tạo nước: Ad
-Input: 
+1. Input: 
 - `req.body`:  
   - `name` (string): Tên nước, bắt buộc.  
   - `price` (number): Giá nước, bắt buộc.  
@@ -32,7 +32,7 @@ Input:
   - `recipe` (string): Công thức pha chế.  
   - `category` (enum): Loại nước (`coffee`, `tea`, `smoothie`, `juice`, `others`).  
   - `tags` (array): Các thẻ liên quan.
-Output: 
+1. Output: 
   - Tạo mới một drink
 Logic: 
 1. Xác thực quyền:
@@ -64,9 +64,9 @@ Logic:
    - Danh sách nước (`array`) hoặc thông báo: "Không có nước nào trong hệ thống."  
 
 ## Lấy danh sách nước theo tag: eU
-Input:
+1. Input:
 - `req.params.tag`: Tên tag
-Output
+2. Output
 - Danh sách các drink cùng tag
 Logic: 
 1. Kiểm tra quyền:
@@ -79,9 +79,9 @@ Logic:
    - Danh sách nước phù hợp hoặc thông báo: "Không tìm thấy nước với tag này." 
 
 ## Lấy công thức và nguyên liệu theo 
-Input:
+1. Input:
 - `req.params.id`: Id nước
-Output:
+2. Output:
 - Danh sách nguyên liệu và công thức
 Logic
 1. Kiểm tra quyền: 
@@ -93,9 +93,9 @@ Logic
    - Thông tin `ingredients` và `recipe` của nước.  
 
 ## Lấy thông tin nước theo tên
-Input:
+1. Input:
 - `req.params.name`: Tên nước 
-Output:
+2. Output:
 - Thông tin và các mô tả về nước
 Logic:
 1. Truy vấn cơ sở dữ liệu: 
@@ -105,7 +105,7 @@ Logic:
    - Thông tin chi tiết về nước hoặc thông báo: "Không tìm thấy nước với tên này."  
 
 ## Cập nhật nước theo Id
-Input:
+1. Input:
 - `req.params.id`: Id nước
 Logic:
 1. Xác thực quyền:
@@ -122,7 +122,7 @@ Logic:
    - Trả về thông báo: "Cập nhật nước thành công."  
 
 ## Xóa nước theo Id
-Input:
+1. Input:
 - `req.params.id`: Id nước 
 Logic
 1. Xác thực quyền:  
