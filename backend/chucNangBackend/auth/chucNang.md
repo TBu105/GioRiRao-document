@@ -1,24 +1,29 @@
+# Phân quyền viết tắt
+Admin: Ad
+managerStore: mS
+staffBarista: sB
+staffWaiter: sW
+staffShipper: sS
+staffCashier: sC
+
 # Mã code chung
 auth-
+
 # Nhân viên, Phân quyền, đăng nhập, đăng ký
 
-Tạo quyền auth-createPermission
+Tạo tài khoản admin với quyền admin auth-createAccountAdmin Ad
 
-Tạo chức vụ auth-createRole
+Tạo tài khoản nhân viên với quyền quản lý cửa hàng auth-createAccountStaff mS
 
-Tạo tài khoản admin với quyền admin auth-createAccountAdmin
+Tạo tài khoản người dùng auth-createAccountUser user
 
-Tạo tài khoản nhân viên với quyền quản lý cửa hàng auth-createAccountStaff
+Nhân viên đăng nhập auth-loginStaff all staff and manager
 
-Tạo tài khoản người dùng auth-createAccountUser
+Người dùng đăng nhập auth-loginUser user
 
-Nhân viên đăng nhập auth-loginStaff
+Thay đổi mật khẩu auth-changePassword 
 
-Người dùng đăng nhập auth-loginUser
-
-Thay đổi mật khẩu auth-changePassword
-
-Phân quyền auth-authorize
+Phân quyền auth-authorize middlware
 
 Kiểm tra tính hợp lệ của Access token auth-verifyAccessToken
 
@@ -203,7 +208,19 @@ Logic
     Ta tạo 1 access token mới
     Trả về cho người dùng access token mới và thông báo 'refresh access token thành công'
 
+## Phân quyền auth-authorize middlware
+Input:
+    role array- ['admin', 'storeManager']
+Output:
+    Cho phép sử dụng controller
+Logic:
+    Ta sử dụng rep.user để lấy được role
+    ta tiến hành kiểm tra role lấy từ req.user có tồn tại trong role array hay không
+    nếu không, thông báo "Bạn không có quyền sử dụng chức năng này"
+    sử dụng next() di chuyển đến contronller
+    
 ##
 
 ##
 
+##
