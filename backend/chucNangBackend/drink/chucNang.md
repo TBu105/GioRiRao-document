@@ -47,7 +47,8 @@ Logic:
    - Nếu đã tồn tại, trả về lỗi: "Tên nước đã tồn tại." 
 4. Tạo nước:
    - Tạo một document mới trong `Drink` model với dữ liệu từ `req.body`.  
-   - Lưu `flagUpdate = false`.  
+   - Lưu `flags.isNew{true}`
+   - Sau 1 tuần `flags.isNew{false}`
    - Lưu nước mới vào cơ sở dữ liệu.  
 
 5. Output: 
